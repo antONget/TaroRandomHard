@@ -21,11 +21,6 @@ class IsRoleAdmin(BaseFilter):
         return await check_role(tg_id=message.from_user.id, role=rq.UserRole.admin)
 
 
-class IsRoleExecutor(BaseFilter):
-    async def __call__(self, message: Message) -> bool:
-        return await check_role(tg_id=message.from_user.id, role=rq.UserRole.executor)
-
-
 class IsRoleUser(BaseFilter):
     async def __call__(self, message: Message) -> bool:
         return await check_role(tg_id=message.from_user.id, role=rq.UserRole.user)
