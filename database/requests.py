@@ -68,7 +68,7 @@ async def set_user_role(tg_id: int, role: str) -> None:
             await session.commit()
 
 
-async def get_users_role(role: str) -> list[User]:
+async def get_users_role(role: str) -> list:
     """
     Получение списка пользователей с заданной ролью
     :param role:
@@ -108,7 +108,7 @@ async def get_card(id_: int) -> Card:
         return await session.scalar(select(Card).filter(Card.id == id_))
 
 
-async def get_cards() -> list[Card]:
+async def get_cards() -> list:
     """
     Получение списка карт таро
     :return:
@@ -135,7 +135,7 @@ async def add_token(data: dict) -> None:
         await session.commit()
 
 
-async def get_token(token: str, tg_id: int) -> bool | str:
+async def get_token(token: str, tg_id: int):
     """
     Проверка валидности токена
     :param token:
@@ -190,7 +190,7 @@ async def add_group(group_id: int, data: dict) -> None:
             await session.commit()
 
 
-async def get_group_partner(tg_id_partner: int) -> list[Group]:
+async def get_group_partner(tg_id_partner: int) -> list:
     """
     Получаем список групп партнера
     :return:
